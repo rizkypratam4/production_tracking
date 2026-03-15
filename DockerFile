@@ -1,0 +1,15 @@
+# 1. Pastikan Anda menggunakan PHP 8.3 (Memecahkan Masalah 1)
+FROM php:8.3-fpm-alpine
+
+# 2. Instal GD (Memecahkan Masalah 2)
+# Khusus Alpine:
+RUN apk add --no-cache libpng-dev libjpeg-dev libwebp-dev \
+    && docker-php-ext-configure gd --with-jpeg --with-webp \
+    && docker-php-ext-install gd \
+    && apk del libpng-dev libjpeg-dev libwebp-dev
+
+# ...
+# 3. Jalankan Composer
+COPY composer.json composer.lock ./
+RUN composer install --optimize-autoloader --no-scripts --no-interaction
+# ...
