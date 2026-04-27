@@ -49,7 +49,11 @@
         </form>
 
         <div class="avatar-wrapper" onclick="document.getElementById('avatarInput').click();">
-            <img src="{{ asset('storage/avatars/' . auth()->user()->image) }}" alt="Avatar" class="avatar-img">
+            @if(auth()->user()->image)
+                <img src="{{ asset('storage/avatars/' . auth()->user()->image) }}" alt="Avatar" class="avatar-img">
+            @else
+                <img src="{{ asset('assets/images/user/avatar-1.jpg') }}" alt="Avatar" class="avatar-img">
+            @endif
             <div class="avatar-overlay">
                 <i class="fas fa-camera"></i>
             </div>

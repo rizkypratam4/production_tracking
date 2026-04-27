@@ -1,3 +1,17 @@
+<style>
+    .user-avtar {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        aspect-ratio: 1 / 1 !important;
+    }
+    .user-avtar.wid-35 {
+        width: 35px !important;
+        height: 35px !important;
+    }
+</style>
+
 <header class="pc-header">
     <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
         <div class="me-auto pc-mob-drp">
@@ -22,7 +36,7 @@
                 <li class="dropdown pc-h-item header-user-profile">
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-                        <img src="{{ asset('storage/avatars/' . auth()->user()->image) }}" alt="user-image"
+                        <img src="{{ auth()->user()->image ? asset('storage/avatars/' . auth()->user()->image) : asset('assets/images/user/avatar-1.jpg') }}" alt="user-image"
                             class="user-avtar">
                         <span>{{ auth()->user()->name }}</span>
                     </a>
@@ -30,7 +44,7 @@
                         <div class="dropdown-header">
                             <div class="d-flex mb-1">
                                 <div class="flex-shrink-0">
-                                    <img src="{{ asset('storage/avatars/' . auth()->user()->image) }}" alt="user-image"
+                                    <img src="{{ auth()->user()->image ? asset('storage/avatars/' . auth()->user()->image) : asset('assets/images/user/avatar-1.jpg') }}" alt="user-image"
                                         class="user-avtar wid-35">
                                 </div>
                                 <div class="flex-grow-1 ms-3">

@@ -25,6 +25,7 @@ class User extends Authenticatable
         'phone',
         'company',
         'password',
+        'image',
         'job_title',
         'direct_superior',
         'departement_id',
